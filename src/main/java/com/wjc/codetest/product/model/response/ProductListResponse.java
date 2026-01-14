@@ -17,6 +17,11 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductListResponse {
+    /**
+     * 문제: 응답 DTO가 JPA 엔티티(Product)에 직접 의존함
+     * 원인: API 응답 전용 DTO와 도메인 모델을 분리하지 않음
+     * 개선안: ProductResponse 등 조회 전용 DTO로 변환하여 반환
+     */
     private List<Product> products;
     private int totalPages;
     private long totalElements;
